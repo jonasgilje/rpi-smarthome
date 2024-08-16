@@ -46,7 +46,7 @@ while True:
         avg_value = sum(watt_list) // OBIS_MESSAGES_NOTIFY_INTERVAL
         hourly_avg = sum(hourly_list) // len(hourly_list)
         url_suffix = NTFYSH_WARNING_SUFFIX if hourly_avg >= HOURLY_AVG_WARNING else ""
-        requests.post(NTFYSH_URL + url_suffix, data=f"Max: {max_value} W, min: {min_value} W, avg: {avg_value} W, hourly avg: {hourly_avg}")
+        requests.post(NTFYSH_URL + url_suffix, data=f"Max: {max_value} W, min: {min_value} W, avg: {avg_value} W, hourly avg: {hourly_avg} W")
         watt_list = []
     cur_time = datetime.datetime.now()
     if cur_time.hour != prev_time.hour:
